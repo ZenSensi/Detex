@@ -57,6 +57,8 @@ const reportBtn = document.getElementById('report-btn');
 const loginBtn = document.getElementById('login-trigger-btn');
 const loginText = document.getElementById('login-text');
 const loginIcon = document.getElementById('login-icon');
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const sidebar = document.querySelector('.sidebar');
 
 // Login Modal Elements
 const loginModal = document.getElementById('login-modal');
@@ -163,6 +165,13 @@ function setTheme(theme) {
 const mainPanel = document.getElementById('main-panel');
 const settingsPanel = document.getElementById('settings-panel');
 
+// Mobile Menu Logic
+if (mobileMenuBtn && sidebar) {
+    mobileMenuBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+    });
+}
+
 // Navigation and Sidebar Panel logic
 document.addEventListener('click', (e) => {
     const settingsTrigger = e.target.closest('#settings-trigger-btn');
@@ -188,6 +197,9 @@ document.addEventListener('click', (e) => {
             messageInput.value = '';
         }
         switchView(target);
+        if (window.innerWidth <= 768 && sidebar) {
+            sidebar.classList.remove('open');
+        }
     }
 });
 
