@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detex Fraud Detector</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" class="icon">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            Detex
+        </div>
+
+        <!-- Main Panel -->
+        <div id="main-panel" class="nav-panel active">
+            <div class="nav-links">
+                <button class="nav-item active" data-target="dashboard-view">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Analyze</span>
+                </button>
+                <button class="nav-item" data-target="history-view">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>History</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Settings Panel -->
+        <div id="settings-panel" class="nav-panel">
+            <div class="panel-header">
+                <button id="back-to-main" class="icon-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </button>
+                <span>Settings</span>
+            </div>
+            <div class="nav-links">
+                <button class="nav-item" data-target="settings-view">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414M16.95 16.95l1.414 1.414M7.05 7.05L5.636 5.636">
+                        </path>
+                    </svg>
+                    <span>Themes</span>
+                </button>
+            </div>
+            <div class="developer-note-sidebar">
+                <p>Developed by Arnabh</p>
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <div id="user-info" class="user-info-container">
+                <img id="user-avatar" class="user-avatar" src="" alt="User Avatar">
+                <div class="user-details">
+                    <span id="user-name" class="user-display-name"></span>
+                    <span id="user-email" class="user-email-text"></span>
+                </div>
+            </div>
+            <button class="nav-item" id="settings-trigger-btn" data-target="settings-view">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path
+                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                    </path>
+                </svg>
+                <span>Settings</span>
+            </button>
+            <button class="nav-item" id="login-trigger-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"
+                    id="login-icon">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span id="login-text">Login</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <main class="container">
+            <!-- Dashboard View -->
+            <section id="dashboard-view" class="view active">
+                <h1 class="headline">Analyze Message</h1>
+                <p class="subtitle">Paste an SMS, email snippet, or message to check if it's safe, suspicious, or fraud.
+                </p>
+
+                <div class="input-group">
+                    <textarea id="message-input" placeholder="Paste the message or SMS you want to check here..."
+                        rows="6"></textarea>
+                </div>
+
+                <button id="analyze-btn" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    Analyze Message
+                </button>
+            </section>
+
+            <!-- Results View -->
+            <section id="results-view" class="view">
+                <h1 class="headline">Analysis Results</h1>
+
+                <div id="result-card" class="status-card">
+                    <div class="status-header">
+                        <div id="status-icon" class="icon-wrapper"></div>
+                        <h2 id="status-title">Status</h2>
+                    </div>
+                    <div class="confidence-gauge">
+                        <div class="gauge-fill" id="gauge-fill"></div>
+                        <span id="confidence-score">99%</span> Confidence
+                    </div>
+                </div>
+
+                <div class="reasoning-section">
+                    <h3>Reasoning</h3>
+                    <p id="status-reasoning">Analysis reasoning will appear here.</p>
+                </div>
+
+                <div class="analyzed-text-section">
+                    <h3>Message Analysed</h3>
+                    <div class="analyzed-text-box" id="analyzed-message"></div>
+                </div>
+
+                <div class="action-group">
+                    <button id="check-another-btn" class="btn btn-primary">Check Another</button>
+                    <button id="report-btn" class="btn btn-secondary" style="display: none;">Report as Fraud</button>
+                </div>
+            </section>
+
+            <!-- History View -->
+            <section id="history-view" class="view">
+                <h1 class="headline">Scan History</h1>
+                <p class="subtitle">Your previously analyzed messages.</p>
+
+                <div id="history-list" class="history-list">
+                    <!-- History items will be injected here -->
+                </div>
+                <div id="empty-history" class="empty-state">
+                    <p>No messages analyzed yet.</p>
+                </div>
+            </section>
+            <!-- Settings View -->
+            <section id="settings-view" class="view">
+                <h1 class="headline">Settings</h1>
+                <p class="subtitle">Personalize your Detex experience.</p>
+
+                <div class="settings-list">
+                    <div class="settings-card">
+                        <div class="settings-item">
+                            <div class="settings-info">
+                                <div class="settings-title">Appearance</div>
+                                <div class="settings-desc">Switch between Dark and Light mode.</div>
+                            </div>
+                            <div class="theme-options">
+                                <button id="theme-dark-btn" class="theme-btn" title="Switch to Dark Mode">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        class="icon-sm">
+                                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                    </svg>
+                                    <span>Dark Mode</span>
+                                </button>
+                                <button id="theme-light-btn" class="theme-btn" title="Switch to Light Mode">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        class="icon-sm">
+                                        <circle cx="12" cy="12" r="5"></circle>
+                                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                    </svg>
+                                    <span>Light Mode</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="developer-info">
+                    <p>Developed by Arnabh</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Welcome to Detex</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <button id="google-login-btn" class="social-btn google">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path
+                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                            fill="#4285F4" />
+                        <path
+                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                            fill="#34A853" />
+                        <path
+                            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
+                            fill="#FBBC05" />
+                        <path
+                            d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                            fill="#EA4335" />
+                    </svg>
+                    Continue with Google
+                </button>
+
+                <div class="divider">
+                    <span>or</span>
+                </div>
+
+                <form id="email-login-form">
+                    <div class="form-group">
+                        <label for="email-input">Email</label>
+                        <input type="email" id="email-input" placeholder="name@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password-input">Password</label>
+                        <input type="password" id="password-input" placeholder="••••••••" required>
+                    </div>
+                    <div id="login-error" class="auth-error-message"
+                        style="display: none; color: #ef4444; background: rgba(239, 68, 68, 0.1); padding: 10px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; text-align: center;">
+                    </div>
+                    <button type="submit" id="submit-auth-btn" class="btn btn-primary">Login</button>
+                </form>
+
+                <p class="auth-toggle">
+                    Don't have an account? <a href="signup.html">Sign Up</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase Modular SDK & App Logic -->
+    <script type="module" src="app.js"></script>
+
+</body>
+
+</html>
