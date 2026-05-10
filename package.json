@@ -1,0 +1,26 @@
+{
+  "name": "detex",
+  "version": "1.0.0",
+  "description": "A minimalist, high-contrast monochrome fraud detection tool.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZenSensi/Detex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ZenSensi/Detex/issues"
+  },
+  "homepage": "https://github.com/ZenSensi/Detex#readme",
+  "devDependencies": {
+    "vite": "^8.0.11"
+  }
+}

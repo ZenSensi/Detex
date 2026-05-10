@@ -1,4 +1,3 @@
-import { config } from "./config.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
     getAuth,
@@ -22,7 +21,14 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // Your web app's Firebase configuration
-const firebaseConfig = config.firebaseConfig;
+const firebaseConfig = {
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -32,7 +38,7 @@ const googleProvider = new GoogleAuthProvider();
 
 // We no longer need DOMContentLoaded because type="module" scripts run after the document is parsed
 // API Configuration
-const OPENROUTER_API_KEY = config.OPENROUTER_API_KEY;
+const OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY;
 const MODEL_NAME = 'openai/gpt-oss-120b:free';
 
 // DOM Elements
