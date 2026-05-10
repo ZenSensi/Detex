@@ -89,6 +89,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 /* Typography */
@@ -188,11 +189,7 @@ body {
   letter-spacing: 0.5px;
 }
 
-.main-content {
-  flex: 1;
-  overflow-y: auto;
-  height: 100vh;
-}
+
 
 .sidebar-header {
   display: flex;
@@ -309,6 +306,7 @@ body {
   max-width: 800px;
   margin: 0 auto;
   width: 100%;
+  box-sizing: border-box;
 }
 
 /* Views */
@@ -524,6 +522,7 @@ textarea:focus {
   letter-spacing: 0.05em;
   color: var(--on-surface-variant);
   margin-bottom: var(--spacing-sm);
+  padding: 0 4px; /* Align with content box */
 }
 
 #status-reasoning {
@@ -552,15 +551,15 @@ textarea:focus {
 
 .history-item {
   background-color: var(--surface-container);
-  padding: var(--spacing-md);
-  border-radius: var(--radius-sm);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
   border-left: 4px solid var(--outline);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .history-item:hover {
@@ -1052,37 +1051,55 @@ textarea:focus {
   }
 
   .main-content {
-    width: 100vw;
+    width: 100%;
+    padding: 0;
+    overflow-x: hidden;
   }
 
   .container {
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
   }
 
   .headline {
     font-size: 24px;
     text-align: center;
+    margin-bottom: var(--spacing-md);
   }
 
   .subtitle {
     font-size: 14px;
     text-align: center;
+    margin-bottom: var(--spacing-xl);
   }
 
   .status-header {
     flex-direction: column;
     text-align: center;
+    gap: var(--spacing-sm);
   }
 
   .confidence-gauge {
     justify-content: center;
+    width: 100%;
   }
 
   .action-group {
     flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .action-group .btn {
+    width: 100%;
+  }
+
+  #analyze-btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .modal-content {
-    width: 95%;
+    width: 92%;
+    margin: 20px auto;
+    padding: var(--spacing-lg);
   }
 }

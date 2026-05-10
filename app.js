@@ -462,6 +462,22 @@ analyzeBtn.addEventListener('click', async () => {
     }
 });
 
+// Results View Actions
+if (checkAnotherBtn) {
+    checkAnotherBtn.addEventListener('click', () => {
+        messageInput.value = '';
+        switchView('dashboard-view');
+        // Re-activate dashboard in nav
+        navItems.forEach(item => {
+            if (item.getAttribute('data-target') === 'dashboard-view') {
+                item.classList.add('active');
+            } else {
+                if (item.id !== 'login-trigger-btn') item.classList.remove('active');
+            }
+        });
+    });
+}
+
 function renderResult(result) {
     // Reset classes
     resultCard.className = `status-card ${result.status}`;
