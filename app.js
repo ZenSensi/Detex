@@ -1,3 +1,4 @@
+import { config } from "./config.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
     getAuth,
@@ -21,14 +22,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyBaFnv-T7TXgKXZvTAzX3pc4YDWTinUgDI",
-    authDomain: "detex-7896.firebaseapp.com",
-    projectId: "detex-7896",
-    storageBucket: "detex-7896.firebasestorage.app",
-    messagingSenderId: "476888268480",
-    appId: "1:476888268480:web:5799cfda179339103af725"
-};
+const firebaseConfig = config.firebaseConfig;
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -38,7 +32,7 @@ const googleProvider = new GoogleAuthProvider();
 
 // We no longer need DOMContentLoaded because type="module" scripts run after the document is parsed
 // API Configuration
-const OPENROUTER_API_KEY = 'REPLACE_WITH_YOUR_KEY'; // Placeholder - do not commit real keys!
+const OPENROUTER_API_KEY = config.OPENROUTER_API_KEY;
 const MODEL_NAME = 'openai/gpt-oss-120b:free';
 
 // DOM Elements
