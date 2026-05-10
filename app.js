@@ -57,7 +57,7 @@ const reportBtn = document.getElementById('report-btn');
 const loginBtn = document.getElementById('login-trigger-btn');
 const loginText = document.getElementById('login-text');
 const loginIcon = document.getElementById('login-icon');
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+// mobile menu button removed
 const sidebar = document.querySelector('.sidebar');
 
 // Login Modal Elements
@@ -165,11 +165,34 @@ function setTheme(theme) {
 const mainPanel = document.getElementById('main-panel');
 const settingsPanel = document.getElementById('settings-panel');
 
-// Mobile Menu Logic
-if (mobileMenuBtn && sidebar) {
-    mobileMenuBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-    });
+// Mobile Swipe Logic
+let touchStartX = 0;
+let touchEndX = 0;
+const SWIPE_THRESHOLD = 50;
+
+document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+}, {passive: true});
+
+document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+}, {passive: true});
+
+function handleSwipe() {
+    if (window.innerWidth > 768) return;
+    if (!sidebar) return;
+    
+    const swipeDistance = touchEndX - touchStartX;
+    if (swipeDistance > SWIPE_THRESHOLD) {
+        // Swipe Right - Open sidebar
+        sidebar.classList.add('open');
+        document.body.classList.add('sidebar-open');
+    } else if (swipeDistance < -SWIPE_THRESHOLD) {
+        // Swipe Left - Close sidebar
+        sidebar.classList.remove('open');
+        document.body.classList.remove('sidebar-open');
+    }
 }
 
 // Navigation and Sidebar Panel logic
@@ -199,7 +222,13 @@ document.addEventListener('click', (e) => {
         switchView(target);
         if (window.innerWidth <= 768 && sidebar) {
             sidebar.classList.remove('open');
+            document.body.classList.remove('sidebar-open');
         }
+    }
+    
+    if (document.body.classList.contains('sidebar-open') && !e.target.closest('.sidebar')) {
+        sidebar.classList.remove('open');
+        document.body.classList.remove('sidebar-open');
     }
 });
 
